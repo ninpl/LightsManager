@@ -26,7 +26,12 @@ namespace MoonAntonio
 		/// <summary>
 		/// <para>Lista de luces en la escena.</para>
 		/// </summary>
-		public List<Light> luces = new List<Light>();				// Lista de luces en la escena
+		public List<Light> luces = new List<Light>();               // Lista de luces en la escena
+
+		/// <summary>
+		/// <para>Lista de las reflection probes en la escena</para>
+		/// </summary>
+		public List<ReflectionProbe> reflection = new List<ReflectionProbe>();// Lista de las reflection probes en la escena
 		#endregion
 
 		#region Variables Privadas
@@ -34,6 +39,10 @@ namespace MoonAntonio
 		/// <para>Luces para el escaneo.</para>
 		/// </summary>
 		private Light[] lights;                                     // Luces para el escaneo
+		/// <summary>
+		/// <para>Reflection probes para el escaneo</para>
+		/// </summary>
+		private ReflectionProbe[] reflec;							// Reflection probes para el escaneo
 		/// <summary>
 		/// <para>Estado de la herramienta.</para>
 		/// </summary>
@@ -78,9 +87,8 @@ namespace MoonAntonio
 			EditorGUILayout.BeginHorizontal("box");
 			if (GUILayout.Button("Lights")) estadoherramienta = 0;
 			if (GUILayout.Button("Reclection Probes")) estadoherramienta = 1;
-			if (GUILayout.Button("Lights Probes")) estadoherramienta = 2;
 #if LIGHTSHAFTS
-			if (GUILayout.Button("Light shafts")) estadoherramienta = 3;
+			if (GUILayout.Button("Light shafts")) estadoherramienta = 2;
 #endif
 			EditorGUILayout.EndHorizontal();
 
@@ -117,17 +125,32 @@ namespace MoonAntonio
 
 				#region Reclection Probes
 				case 1:
-					break;
-				#endregion
+					EditorGUILayout.BeginHorizontal("box");
 
-				#region Lights Probes
-				case 2:
+					EditorGUILayout.LabelField("Estado", GUILayout.MinWidth(100), GUILayout.Width(50));
+					EditorGUILayout.LabelField("Nombre", GUILayout.MinWidth(100), GUILayout.Width(140));
+					EditorGUILayout.LabelField("Tipo", GUILayout.MinWidth(100), GUILayout.Width(100));
+					EditorGUILayout.LabelField("Intensidad", GUILayout.MinWidth(100), GUILayout.Width(200));
+
+					EditorGUILayout.EndHorizontal();
+
+					for (int n = 0; n < reflection.Count; n++)
+					{
+						EditorGUILayout.BeginHorizontal("box");
+
+						reflection[n].enabled = EditorGUILayout.Toggle(reflection[n].enabled, GUILayout.MinWidth(100), GUILayout.Width(50));
+						reflection[n].name = EditorGUILayout.TextField(reflection[n].name, GUILayout.MinWidth(100), GUILayout.Width(140));
+						reflection[n].mode = (UnityEngine.Rendering.ReflectionProbeMode)EditorGUILayout.EnumPopup(reflection[n].mode, GUILayout.MinWidth(100), GUILayout.Width(100));
+						reflection[n].intensity = EditorGUILayout.Slider(reflection[n].intensity, 0, 10, GUILayout.MinWidth(100), GUILayout.Width(200));
+
+						EditorGUILayout.EndHorizontal();
+					}
 					break;
 				#endregion
 
 				#region Lights Probes
 #if LIGHTSHAFTS
-				case 3:
+				case 2:
 					break;
 #endif
 				#endregion
@@ -139,9 +162,9 @@ namespace MoonAntonio
 
 			EditorGUILayout.EndVertical();
 		}
-#endregion
+		#endregion
 
-#region Metodos
+		#region Metodos
 		/// <summary>
 		/// <para>Escanea las luces de la escena.</para>
 		/// </summary>
@@ -149,7 +172,10 @@ namespace MoonAntonio
 		{
 			// Limpiar lista y array
 			Array.Clear(lights, 0, lights.Length);
+			Array.Clear(reflec, 0, reflec.Length);
 			luces.Clear();
+			reflection.Clear();
+
 
 			// Agregar las luces a la lista
 			lights = FindObjectsOfType(typeof(Light)) as Light[];
@@ -157,7 +183,14 @@ namespace MoonAntonio
 			{
 				luces.Add(light);
 			}
+
+			// Agregar las reclection a la lista
+			reflec = FindObjectsOfType(typeof(ReflectionProbe)) as ReflectionProbe[];
+			foreach (ReflectionProbe reflectionP in reflec)
+			{
+				reflection.Add(reflectionP);
+			}
 		}
-#endregion
+		#endregion
 	}
 }
