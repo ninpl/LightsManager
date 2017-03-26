@@ -476,7 +476,6 @@ GameObject:
   m_Component:
   - component: {fileID: 602120500}
   - component: {fileID: 602120499}
-  - component: {fileID: 602120498}
   m_Layer: 0
   m_Name: Directional light (1)
   m_TagString: Untagged
@@ -484,96 +483,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &602120498
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 602120497}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0109504c2f6a31b4498a8fd6a490584a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_ShadowmapMode: 0
-  m_ShadowmapModeOld: 0
-  m_Cameras:
-  - {fileID: 1004921836}
-  m_CurrentCamera: {fileID: 0}
-  m_ShadowmapDirty: 0
-  m_Size: {x: 10, y: 10, z: 20}
-  m_SpotNear: 0.1
-  m_SpotFar: 1
-  m_CullingMask: {}
-  m_ColorFilterMask: {}
-  m_Brightness: 5
-  m_BrightnessColored: 5
-  m_Extinction: 0.5
-  m_MinDistFromCamera: 0
-  m_ShadowmapRes: 1024
-  m_ShadowmapCamera: {fileID: 0}
-  m_Shadowmap: {fileID: 0}
-  m_DepthShader: {fileID: 4800000, guid: 7e188a1e08ecfae4785bed08b1013219, type: 3}
-  m_ColorFilter: {fileID: 0}
-  m_ColorFilterShader: {fileID: 4800000, guid: 78da0b5fc3a6e8a469d047d71187e7ef, type: 3}
-  m_Colored: 0
-  m_ColorBalance: 1
-  m_EpipolarLines: 256
-  m_EpipolarSamples: 512
-  m_CoordEpi: {fileID: 0}
-  m_DepthEpi: {fileID: 0}
-  m_CoordShader: {fileID: 4800000, guid: 170533b360a07f945b98b5d9d11bff19, type: 3}
-  m_CoordMaterial: {fileID: 0}
-  m_CoordsCamera: {fileID: 0}
-  m_InterpolationEpi: {fileID: 0}
-  m_DepthBreaksShader: {fileID: 4800000, guid: 8675ad07e6cda494d977506a7a2a8fbd, type: 3}
-  m_DepthBreaksMaterial: {fileID: 0}
-  m_RaymarchedLightEpi: {fileID: 0}
-  m_RaymarchMaterial: {fileID: 0}
-  m_RaymarchShader: {fileID: 4800000, guid: 8b94af9deac0e2d4e9523f6090a3e61e, type: 3}
-  m_InterpolateAlongRaysEpi: {fileID: 0}
-  m_InterpolateAlongRaysShader: {fileID: 4800000, guid: b4040e961c997484e824ff979a17c3c0,
-    type: 3}
-  m_InterpolateAlongRaysMaterial: {fileID: 0}
-  m_SamplePositions: {fileID: 0}
-  m_SamplePositionsShader: {fileID: 4800000, guid: 328e45223da3ee24a9b9bc2020d76aa4,
-    type: 3}
-  m_SamplePositionsMaterial: {fileID: 0}
-  m_SamplePositionsShaderCompiles: 1
-  m_FinalInterpolationShader: {fileID: 4800000, guid: 3fe6f8dd2066bc741806972899aa82f6,
-    type: 3}
-  m_FinalInterpolationMaterial: {fileID: 0}
-  m_DepthThreshold: 0.5
-  m_InterpolationStep: 32
-  m_ShowSamples: 0
-  m_ShowInterpolatedSamples: 0
-  m_ShowSamplesBackgroundFade: 0.8
-  m_AttenuationCurveOn: 0
-  m_AttenuationCurve:
-    m_Curve:
-    - time: 0
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-    - time: 1
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 0
-  m_AttenuationCurveTex: {fileID: 0}
-  m_Light: {fileID: 602120499}
-  m_LightType: 1
-  m_DX11Support: 1
-  m_MinRequirements: 1
-  m_SpotMesh: {fileID: 0}
-  m_SpotMeshNear: 0.1
-  m_SpotMeshFar: 1
-  m_SpotMeshAngle: 30
-  m_SpotMeshRange: 10
 --- !u!108 &602120499
 Light:
   m_ObjectHideFlags: 0
@@ -965,7 +874,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1316558317}
   - component: {fileID: 1316558316}
-  - component: {fileID: 1316558315}
   m_Layer: 0
   m_Name: Directional light (2)
   m_TagString: Untagged
@@ -973,96 +881,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1316558315
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1316558314}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0109504c2f6a31b4498a8fd6a490584a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_ShadowmapMode: 0
-  m_ShadowmapModeOld: 0
-  m_Cameras:
-  - {fileID: 1004921836}
-  m_CurrentCamera: {fileID: 0}
-  m_ShadowmapDirty: 0
-  m_Size: {x: 10, y: 10, z: 20}
-  m_SpotNear: 0.1
-  m_SpotFar: 1
-  m_CullingMask: {}
-  m_ColorFilterMask: {}
-  m_Brightness: 5
-  m_BrightnessColored: 5
-  m_Extinction: 0.5
-  m_MinDistFromCamera: 0
-  m_ShadowmapRes: 1024
-  m_ShadowmapCamera: {fileID: 0}
-  m_Shadowmap: {fileID: 0}
-  m_DepthShader: {fileID: 4800000, guid: 7e188a1e08ecfae4785bed08b1013219, type: 3}
-  m_ColorFilter: {fileID: 0}
-  m_ColorFilterShader: {fileID: 4800000, guid: 78da0b5fc3a6e8a469d047d71187e7ef, type: 3}
-  m_Colored: 0
-  m_ColorBalance: 1
-  m_EpipolarLines: 256
-  m_EpipolarSamples: 512
-  m_CoordEpi: {fileID: 0}
-  m_DepthEpi: {fileID: 0}
-  m_CoordShader: {fileID: 4800000, guid: 170533b360a07f945b98b5d9d11bff19, type: 3}
-  m_CoordMaterial: {fileID: 0}
-  m_CoordsCamera: {fileID: 0}
-  m_InterpolationEpi: {fileID: 0}
-  m_DepthBreaksShader: {fileID: 4800000, guid: 8675ad07e6cda494d977506a7a2a8fbd, type: 3}
-  m_DepthBreaksMaterial: {fileID: 0}
-  m_RaymarchedLightEpi: {fileID: 0}
-  m_RaymarchMaterial: {fileID: 0}
-  m_RaymarchShader: {fileID: 4800000, guid: 8b94af9deac0e2d4e9523f6090a3e61e, type: 3}
-  m_InterpolateAlongRaysEpi: {fileID: 0}
-  m_InterpolateAlongRaysShader: {fileID: 4800000, guid: b4040e961c997484e824ff979a17c3c0,
-    type: 3}
-  m_InterpolateAlongRaysMaterial: {fileID: 0}
-  m_SamplePositions: {fileID: 0}
-  m_SamplePositionsShader: {fileID: 4800000, guid: 328e45223da3ee24a9b9bc2020d76aa4,
-    type: 3}
-  m_SamplePositionsMaterial: {fileID: 0}
-  m_SamplePositionsShaderCompiles: 1
-  m_FinalInterpolationShader: {fileID: 4800000, guid: 3fe6f8dd2066bc741806972899aa82f6,
-    type: 3}
-  m_FinalInterpolationMaterial: {fileID: 0}
-  m_DepthThreshold: 0.5
-  m_InterpolationStep: 32
-  m_ShowSamples: 0
-  m_ShowInterpolatedSamples: 0
-  m_ShowSamplesBackgroundFade: 0.8
-  m_AttenuationCurveOn: 0
-  m_AttenuationCurve:
-    m_Curve:
-    - time: 0
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-    - time: 1
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 0
-  m_AttenuationCurveTex: {fileID: 0}
-  m_Light: {fileID: 1316558316}
-  m_LightType: 1
-  m_DX11Support: 1
-  m_MinRequirements: 1
-  m_SpotMesh: {fileID: 0}
-  m_SpotMeshNear: 0.1
-  m_SpotMeshFar: 1
-  m_SpotMeshAngle: 30
-  m_SpotMeshRange: 10
 --- !u!108 &1316558316
 Light:
   m_ObjectHideFlags: 0

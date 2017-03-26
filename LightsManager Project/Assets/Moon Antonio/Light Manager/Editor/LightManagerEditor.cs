@@ -19,7 +19,7 @@ namespace MoonAntonio
 	/// <summary>
 	/// <para>Herramienta para controlar las luces de al escena</para>
 	/// </summary>
-	//[ExecuteInEditMode]
+	[ExecuteInEditMode]
 	public class LightManagerEditor : EditorWindow
 	{
 		#region Variables Publicas
@@ -64,7 +64,9 @@ namespace MoonAntonio
 			window.titleContent = tituloContenido;
 			window.Show();
 		}
+		#endregion
 
+		#region Unity Metodos
 		/// <summary>
 		/// <para>Cuando esta activo LightManagerEditor</para>
 		/// </summary>
@@ -74,12 +76,10 @@ namespace MoonAntonio
 			Escaneo();
 		}
 
-		public void OnHierarchyChange()
-		{
-			//Escaneo();
-		}
-
-		public void OnInspectorUpdate()
+		/// <summary>
+		/// <para>Cuando el inspector Actualiza</para>
+		/// </summary>
+		public void OnInspectorUpdate()// Cuando el inspector Actualiza
 		{
 			if (lights.Length > 0) Array.Clear(lights, 0, lights.Length);
 			if (reflec.Length > 0) Array.Clear(reflec, 0, reflec.Length);
