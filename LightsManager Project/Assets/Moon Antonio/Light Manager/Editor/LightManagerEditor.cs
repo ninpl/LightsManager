@@ -20,11 +20,15 @@ namespace MoonAntonio
 	[ExecuteInEditMode]
 	public class LightManagerEditor : Editor 
 	{
-
+		#region Menu
+		/// <summary>
+		/// <para>Iniciador de Manager Light</para>
+		/// </summary>
 		[MenuItem("Moon Antonio/ManagerLight",false,1)]
-		public static void Init()
+		public static void Init()// Iniciador de Manager Light
 		{
 
 		}
+		#endregion
 	}
 }
