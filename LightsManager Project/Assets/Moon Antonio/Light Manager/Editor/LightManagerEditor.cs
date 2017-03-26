@@ -76,11 +76,11 @@ namespace MoonAntonio
 			EditorGUILayout.BeginVertical("box");
 
 			EditorGUILayout.BeginHorizontal("box");
-			GUILayout.Button("Lights");
-			GUILayout.Button("Reclection Probes");
-			GUILayout.Button("Lights Probes");
+			if (GUILayout.Button("Lights")) estadoherramienta = 0;
+			if (GUILayout.Button("Reclection Probes")) estadoherramienta = 1;
+			if (GUILayout.Button("Lights Probes")) estadoherramienta = 2;
 #if LIGHTSHAFTS
-			GUILayout.Button("Light shafts");
+			if (GUILayout.Button("Light shafts")) estadoherramienta = 3;
 #endif
 			EditorGUILayout.EndHorizontal();
 
