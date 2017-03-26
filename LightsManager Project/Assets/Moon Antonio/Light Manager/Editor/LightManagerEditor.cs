@@ -33,7 +33,11 @@ namespace MoonAntonio
 		/// <summary>
 		/// <para>Luces para el escaneo.</para>
 		/// </summary>
-		private Light[] lights;										// Luces para el escaneo
+		private Light[] lights;                                     // Luces para el escaneo
+		/// <summary>
+		/// <para>Estado de la herramienta.</para>
+		/// </summary>
+		private int estadoherramienta = 0;							// Estado de la herramienta
 		#endregion
 
 		#region Menu
@@ -75,40 +79,69 @@ namespace MoonAntonio
 			GUILayout.Button("Lights");
 			GUILayout.Button("Reclection Probes");
 			GUILayout.Button("Lights Probes");
+#if LIGHTSHAFTS
 			GUILayout.Button("Light shafts");
+#endif
 			EditorGUILayout.EndHorizontal();
 
-
-			EditorGUILayout.BeginHorizontal("box");
-
-			EditorGUILayout.LabelField("Estado", GUILayout.MinWidth(100), GUILayout.Width(50));
-			EditorGUILayout.LabelField("Nombre", GUILayout.MinWidth(100), GUILayout.Width(140));
-			EditorGUILayout.LabelField("Tipo", GUILayout.MinWidth(100), GUILayout.Width(100));
-			EditorGUILayout.LabelField("Modo", GUILayout.MinWidth(100), GUILayout.Width(100));
-			EditorGUILayout.LabelField("Color", GUILayout.MinWidth(100), GUILayout.Width(50));
-			EditorGUILayout.LabelField("Intensidad", GUILayout.MinWidth(100), GUILayout.Width(200));
-
-			EditorGUILayout.EndHorizontal();
-
-			for (int n = 0; n < luces.Count; n++)
+			switch (estadoherramienta)
 			{
-				EditorGUILayout.BeginHorizontal("box");
+				#region Luces
+				case 0:
+					EditorGUILayout.BeginHorizontal("box");
 
-				luces[n].enabled = EditorGUILayout.Toggle(luces[n].enabled, GUILayout.MinWidth(100), GUILayout.Width(50));
-				luces[n].name = EditorGUILayout.TextField(luces[n].name, GUILayout.MinWidth(100), GUILayout.Width(140));
-				luces[n].type = (LightType)EditorGUILayout.EnumPopup(luces[n].type, GUILayout.MinWidth(100), GUILayout.Width(100));
-				luces[n].lightmappingMode = (LightmappingMode)EditorGUILayout.EnumPopup(luces[n].lightmappingMode, GUILayout.MinWidth(100), GUILayout.Width(100));
-				luces[n].color = EditorGUILayout.ColorField(luces[n].color, GUILayout.MinWidth(100), GUILayout.Width(50));
-				luces[n].intensity = EditorGUILayout.Slider(luces[n].intensity,0,10, GUILayout.MinWidth(100), GUILayout.Width(200));
+					EditorGUILayout.LabelField("Estado", GUILayout.MinWidth(100), GUILayout.Width(50));
+					EditorGUILayout.LabelField("Nombre", GUILayout.MinWidth(100), GUILayout.Width(140));
+					EditorGUILayout.LabelField("Tipo", GUILayout.MinWidth(100), GUILayout.Width(100));
+					EditorGUILayout.LabelField("Modo", GUILayout.MinWidth(100), GUILayout.Width(100));
+					EditorGUILayout.LabelField("Color", GUILayout.MinWidth(100), GUILayout.Width(50));
+					EditorGUILayout.LabelField("Intensidad", GUILayout.MinWidth(100), GUILayout.Width(200));
 
-				EditorGUILayout.EndHorizontal();
+					EditorGUILayout.EndHorizontal();
+
+					for (int n = 0; n < luces.Count; n++)
+					{
+						EditorGUILayout.BeginHorizontal("box");
+
+						luces[n].enabled = EditorGUILayout.Toggle(luces[n].enabled, GUILayout.MinWidth(100), GUILayout.Width(50));
+						luces[n].name = EditorGUILayout.TextField(luces[n].name, GUILayout.MinWidth(100), GUILayout.Width(140));
+						luces[n].type = (LightType)EditorGUILayout.EnumPopup(luces[n].type, GUILayout.MinWidth(100), GUILayout.Width(100));
+						luces[n].lightmappingMode = (LightmappingMode)EditorGUILayout.EnumPopup(luces[n].lightmappingMode, GUILayout.MinWidth(100), GUILayout.Width(100));
+						luces[n].color = EditorGUILayout.ColorField(luces[n].color, GUILayout.MinWidth(100), GUILayout.Width(50));
+						luces[n].intensity = EditorGUILayout.Slider(luces[n].intensity, 0, 10, GUILayout.MinWidth(100), GUILayout.Width(200));
+
+						EditorGUILayout.EndHorizontal();
+					}
+					break;
+				#endregion
+
+				#region Reclection Probes
+				case 1:
+					break;
+				#endregion
+
+				#region Lights Probes
+				case 2:
+					break;
+				#endregion
+
+				#region Lights Probes
+#if LIGHTSHAFTS
+				case 3:
+					break;
+#endif
+				#endregion
+
+				default:
+					estadoherramienta = 0;
+					break;
 			}
 
 			EditorGUILayout.EndVertical();
 		}
-		#endregion
+#endregion
 
-		#region Metodos
+#region Metodos
 		/// <summary>
 		/// <para>Escanea las luces de la escena.</para>
 		/// </summary>
@@ -125,6 +158,6 @@ namespace MoonAntonio
 				luces.Add(light);
 			}
 		}
-		#endregion
+#endregion
 	}
 }
