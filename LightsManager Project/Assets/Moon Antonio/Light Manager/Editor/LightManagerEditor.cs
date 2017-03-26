@@ -18,7 +18,7 @@ namespace MoonAntonio
 	/// <para>Herramienta para controlar las luces de al escena</para>
 	/// </summary>
 	[ExecuteInEditMode]
-	public class LightManagerEditor : Editor 
+	public class LightManagerEditor : EditorWindow
 	{
 		#region Menu
 		/// <summary>
@@ -27,7 +27,12 @@ namespace MoonAntonio
 		[MenuItem("Moon Antonio/ManagerLight",false,1)]
 		public static void Init()// Iniciador de Manager Light
 		{
-
+			Texture icono = AssetDatabase.LoadAssetAtPath<Texture>("Assets/Moon Antonio/Light Manager/Icon/icon.lightmanager.png");
+			var window = GetWindow<LightManagerEditor>();
+			window.minSize = new Vector2(0, 0);
+			GUIContent tituloContenido = new GUIContent(" Light Manager", icono);
+			window.titleContent = tituloContenido;
+			window.Show();
 		}
 		#endregion
 	}
