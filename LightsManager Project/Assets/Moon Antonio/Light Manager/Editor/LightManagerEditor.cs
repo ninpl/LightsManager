@@ -10,6 +10,7 @@
 #region Librerias
 using UnityEngine;
 using UnityEditor;
+using System.Collections.Generic;
 #endregion
 
 namespace MoonAntonio
@@ -20,6 +21,11 @@ namespace MoonAntonio
 	[ExecuteInEditMode]
 	public class LightManagerEditor : EditorWindow
 	{
+		#region Variables Publicas
+		public List<Light> luces = new List<Light>();
+		private Light[] lights;
+		#endregion
+
 		#region Menu
 		/// <summary>
 		/// <para>Iniciador de Manager Light</para>
@@ -34,6 +40,32 @@ namespace MoonAntonio
 			window.titleContent = tituloContenido;
 			window.Show();
 		}
+
+		public void OnEnable()
+		{
+
+			Escaneo();
+		}
 		#endregion
+
+		#region UI
+
+		private void OnGUI()
+		{
+			for (int n = 0; n < luces.Count; n++)
+			{
+				EditorGUILayout.LabelField(luces[n].name);
+			}
+		}
+		#endregion
+
+		private void Escaneo()
+		{
+			lights = FindObjectsOfType(typeof(Light)) as Light[];
+			foreach (Light light in lights)
+			{
+				luces.Add(light);
+			}
+		}
 	}
 }
