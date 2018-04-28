@@ -3,8 +3,8 @@
 // LightManagerEditor.cs (26/03/2017)											\\
 // Autor: Antonio Mateo (Moon Antonio) 									        \\
 // Descripcion:		Herramienta para controlar las luces de al escena.			\\
-// Fecha Mod:		26/03/2017													\\
-// Ultima Mod:		Version Inicial												\\
+// Fecha Mod:		28/04/2018													\\
+// Ultima Mod:		Redimension de GUI.											\\
 //******************************************************************************\\
 
 #region Librerias
@@ -45,7 +45,11 @@ namespace MoonAntonio
 		/// <summary>
 		/// <para>Estado de la herramienta.</para>
 		/// </summary>
-		private int estadoherramienta = 0;							// Estado de la herramienta
+		private int estadoherramienta = 0;                          // Estado de la herramienta
+		/// <summary>
+		/// <para>Posicion del scroll lateral.</para>
+		/// </summary>
+		private Vector2 scrollPosicion;								// Posicion del scroll lateral
 		#endregion
 
 		#region Menu
@@ -103,6 +107,8 @@ namespace MoonAntonio
 			if (GUILayout.Button("Reflection Probes")) estadoherramienta = 1;
 			EditorGUILayout.EndHorizontal();
 
+			scrollPosicion = EditorGUILayout.BeginScrollView(scrollPosicion, GUILayout.Width(500), GUILayout.Height(500));
+
 			switch (estadoherramienta)
 			{
 				#region Luces
@@ -127,7 +133,7 @@ namespace MoonAntonio
 							luces[n].enabled = EditorGUILayout.Toggle(luces[n].enabled, GUILayout.MinWidth(100), GUILayout.Width(50));
 							luces[n].name = EditorGUILayout.TextField(luces[n].name, GUILayout.MinWidth(100), GUILayout.Width(140));
 							luces[n].type = (LightType)EditorGUILayout.EnumPopup(luces[n].type, GUILayout.MinWidth(100), GUILayout.Width(100));
-							luces[n].lightmappingMode = (LightmappingMode)EditorGUILayout.EnumPopup(luces[n].lightmappingMode, GUILayout.MinWidth(100), GUILayout.Width(100));
+							luces[n].lightmapBakeType = (LightmapBakeType)EditorGUILayout.EnumPopup(luces[n].lightmapBakeType, GUILayout.MinWidth(100), GUILayout.Width(100));
 							luces[n].color = EditorGUILayout.ColorField(luces[n].color, GUILayout.MinWidth(100), GUILayout.Width(50));
 							luces[n].intensity = EditorGUILayout.Slider(luces[n].intensity, 0, 10, GUILayout.MinWidth(100), GUILayout.Width(200));
 
@@ -169,6 +175,8 @@ namespace MoonAntonio
 					estadoherramienta = 0;
 					break;
 			}
+
+			EditorGUILayout.EndScrollView();
 
 			EditorGUILayout.EndVertical();
 
